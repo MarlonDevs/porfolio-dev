@@ -1,0 +1,75 @@
+---
+import Github from "./icons/Github.astro"
+import Nextjs from "./icons/Nextjs.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import ViewSite from "./icons/ViewSite.astro"
+
+const TAGS = {
+    NEXT: {
+        name: "Next.js",
+        class: "bg-black text-white",
+        icon: Nextjs,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-[#003159] text-white",
+        icon: Tailwind,
+    },
+    GITHUB: {
+        name: "",
+        class: "text-white",
+        link: "https://github.com/marlonmogollondev",
+        icon: Github,
+    },
+    SITE: {
+        name: "",
+        class: "text-white",
+        link: "https://doramcbo.netlify.app",
+        icon: ViewSite,
+    },
+}
+
+const PROJECTS = [
+    {
+        title: 'LinkTree for Dora.mcbo',
+        description: 'Simple section for access to Dora.mcbo social networks, website and event schedule,facilitating access to contact this virtual store, review its catalog, see its upcoming appearances and follow it on social networks.',
+        link: 'https://doramcbo.netlify.app',
+        github: 'https://github.com/marlonmogollondev',
+        image: '../src/assets/linktree.avif',
+        tags: [TAGS.NEXT, TAGS.TAILWIND],
+    },
+]
+---
+
+{
+    PROJECTS.map(({ title, description, image, tags, link, github}) => (
+        <article class="flex gap-4 bg-neutral-950 border-2 border-white rounded-lg  ">
+            <div class="flex flex-col p-4">
+                <h3 class="text-2xl semibold text-yellow-200/90 mb-2">{title}</h3>
+                <p class="mb-4 text-sm text-pretty">{description}</p>
+                <ul class="flex gap-x-2">
+                    {tags.map((tag) => (
+                        <li>
+                            <span
+                                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}>
+                                <tag.icon class="size-4"/>{tag.name}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+                <div class="flex w-auto gap-3 text-white">
+                    <a href={github} target="_blank" rel="noopener noreferrer" class="mt-5 hover:text-yellow-200 hover:scale-90 transition">
+                        {<Github class="size-5"/>}
+                    </a>
+                    <a href={link} target="_blank" rel="noopener noreferrer" class="mt-5 hover:text-yellow-200 hover:scale-90 transition">
+                        {<ViewSite class="size-5"/>}
+                    </a>
+                </div>
+            </div>
+            <img 
+                class="rounded shadow-xl shadow-white/10 w-96 h-auto" 
+                src={image} 
+                alt={`Captura de pantalla del Proyecto ${image}`}/>
+        </article>
+    ))
+}

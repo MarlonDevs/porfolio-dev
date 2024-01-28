@@ -1,0 +1,38 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCIE = [
+    {
+        date: 'Currently...',
+        title: 'Content creator - Youtube',
+        description: 'I disseminate information about programming and web development. Helping the non-English speaking community.',
+        link: 'https://youtube.com'
+    },
+    {
+        date: 'January 2024',
+        title: 'Front Developer Engineer - Dora.mcbo',
+        description: 'Main developer in the creation of the Dora virtual store, significant contribution as a developer, participation in UX/UI design, CEO and web positioning of the same.',
+        link: 'https://doramcbo.netlify.app'
+    },
+    /*{
+        date: 'April 2022',
+        title: 'Aplication UI',
+        description: 'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.',
+    },
+    {
+        date: 'April 2022',
+        title: 'Tailwind CSS',
+        description: 'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.',
+    },*/
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3 mb-5 flex flex-col">
+    {
+        EXPERIENCIE.map((experience) =>(
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience}/>
+            </li>
+        ))
+    }            
+</ol>
