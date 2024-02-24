@@ -1,75 +1,91 @@
 ---
-import Github from "./icons/Github.astro"
-import Nextjs from "./icons/Nextjs.astro"
-import Tailwind from "./icons/Tailwind.astro"
-import ViewSite from "./icons/ViewSite.astro"
+import Github from "../icons/Github.astro";
+import Nextjs from "../icons/Nextjs.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import AstroIcon from "../icons/AstroIcon.astro";
+import ViewSite from "../icons/ViewSite.astro";
+import LinkButton from "./LinkButton.astro";
 
 const TAGS = {
-    NEXT: {
-        name: "Next.js",
-        class: "bg-black text-white",
-        icon: Nextjs,
-    },
-    TAILWIND: {
-        name: "Tailwind CSS",
-        class: "bg-[#003159] text-white",
-        icon: Tailwind,
-    },
-    GITHUB: {
-        name: "",
-        class: "text-white",
-        link: "https://github.com/marlonmogollondev",
-        icon: Github,
-    },
-    SITE: {
-        name: "",
-        class: "text-white",
-        link: "https://doramcbo.netlify.app",
-        icon: ViewSite,
-    },
-}
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: Nextjs,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#373737]",
+    icon: AstroIcon,
+  },
+};
 
 const PROJECTS = [
-    {
-        title: 'LinkTree for Dora.mcbo',
-        description: 'Simple section for access to Dora.mcbo social networks, website and event schedule,facilitating access to contact this virtual store, review its catalog, see its upcoming appearances and follow it on social networks.',
-        link: 'https://doramcbo.netlify.app',
-        github: 'https://github.com/marlonmogollondev',
-        image: '../src/assets/linktree.avif',
-        tags: [TAGS.NEXT, TAGS.TAILWIND],
-    },
-]
+  {
+    title: "LinkTree - Dora.mcbo",
+    description:
+      "Section with easy access to social networks, catalog and event agenda of the Dora.mcbo virtual store.",
+    link: "https://doramcbo.netlify.app",
+    github: "https://github.com/MarlonDevs",
+    image: "../assets/linktree.avif",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Github User Finder",
+    description:
+      "Github User Search engine using its API, this search engine shows: Followers, Following, Created Repositories and 10 Most Viewed Repositories of that user.",
+    link: "https://users-finder.netlify.app/",
+    github: "https://github.com/MarlonDevs",
+    image: "../assets/user-finder.png",
+    tags: [TAGS.ASTRO, TAGS.TAILWIND],
+  },
+];
 ---
 
 {
-    PROJECTS.map(({ title, description, image, tags, link, github}) => (
-        <article class="flex gap-4 bg-neutral-950 border-2 border-white rounded-lg  ">
-            <div class="flex flex-col p-4">
-                <h3 class="text-2xl semibold text-yellow-200/90 mb-2">{title}</h3>
-                <p class="mb-4 text-sm text-pretty">{description}</p>
-                <ul class="flex gap-x-2">
-                    {tags.map((tag) => (
-                        <li>
-                            <span
-                                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}>
-                                <tag.icon class="size-4"/>{tag.name}
-                            </span>
-                        </li>
-                    ))}
-                </ul>
-                <div class="flex w-auto gap-3 text-white">
-                    <a href={github} target="_blank" rel="noopener noreferrer" class="mt-5 hover:text-yellow-200 hover:scale-90 transition">
-                        {<Github class="size-5"/>}
-                    </a>
-                    <a href={link} target="_blank" rel="noopener noreferrer" class="mt-5 hover:text-yellow-200 hover:scale-90 transition">
-                        {<ViewSite class="size-5"/>}
-                    </a>
-                </div>
-            </div>
-            <img 
-                class="rounded shadow-xl shadow-white/10 w-96 h-auto" 
-                src={image} 
-                alt={`Captura de pantalla del Proyecto ${image}`}/>
-        </article>
-    ))
+  PROJECTS.map(({ title, description, image, tags, link, github }) => (
+    <article class="flex gap-4 bg-black/15 backdrop-blur-md rounded-lg mb-6">
+      <div class="flex flex-col p-4 justify-between">
+        <h3 class="text-2xl semibold text-white shadow mb-2">{title}</h3>
+        <p class="line-clamp-3 mb-4 text-sm text-pretty text-white/70">
+          {description}
+        </p>
+        <ul class="flex gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <footer class="flex w-auto gap-3 text-white">
+          {github && (
+            <LinkButton href={github}>
+              <Github class="size-4" />
+              code
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <ViewSite class="size-4" />
+              view
+            </LinkButton>
+          )}
+        </footer>
+      </div>
+      <img
+        class="rounded-md shadow-md shadow-white/10 w-96 h-auto object-cover"
+        src={image}
+        alt={`Captura de pantalla del Proyecto ${image}`}
+      />
+    </article>
+  ))
 }

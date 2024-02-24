@@ -1,11 +1,44 @@
+---
+const navItems = [
+    {
+        title: "Home",
+        label: "Home",
+        url: "/#top",
+    },
+    {
+        title: "Experience",
+        label: "Experience",
+        url: "/#experience",
+    },
+    {
+        title: "Projects",
+        label: "Projects",
+        url: "/#projects",
+    },
+    {
+        title: "About",
+        label: "About",
+        url: "/#about",
+    },
+    {
+        title: "Contact",
+        label: "Contact",
+        url: "/#contact",
+    },
+]
+---
+
 <header class="flex sticky top-0 justify-center items-center py-6 w-[1000px] mx-auto z-10">
 
-    <nav class="flex flex-row items-center gap-x-6 bg-transparent backdrop-blur-2xl border border-white/20 rounded-full px-3 py-1">
-        <a class="hover:bg-white/10 rounded-full px-3 transition" href="#top">Home</a>
-        <a class="hover:bg-white/10 rounded-full px-3 transition" href="#experience">Experience</a>
-        <a class="hover:bg-white/10 rounded-full px-3 transition" href="#projects">Projects</a>
-        <a class="hover:bg-white/10 rounded-full px-3 transition" href="#about">About</a>
-        <a class="hover:bg-white/10 rounded-full px-3 transition" href="#contact">Contact</a>
+    <nav class="flex flex-row items-center gap-x-6 bg-black/50 backdrop-blur-2xl border border-white/20 rounded-full px-3 py-1">{
+        navItems.map((link)=>(
+            <a 
+                class="hover:bg-white/10 rounded-full px-3 transition " 
+                aria-label={link.label}
+                href={link.url}>
+                    {link.title}
+                </a>
+            ))}
     </nav>
 
 </header>

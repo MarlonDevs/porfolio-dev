@@ -1,21 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+import Aboutme from "../components/Aboutme.astro";
 import Badge from "../components/Badge.astro";
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import GithubIcon from "../components/icons/Github.astro";
-import MailIcon from "../components/icons/Mail.astro";
-import SocialList from "../components/SocialList.astro";
-import Experience from "../components/Experience.astro";
-import ProjectIcon from "../components/icons/ProjectIcon.astro";
-import ExperienceIcon from "../components/icons/ExperienceIcon.astro";
-import SectionContainer from "../components/SectionContainer.astro";
 import Projects from "../components/Projects.astro";
+import Experience from "../components/Experience.astro";
+import SocialList from "../components/SocialList.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+
+import CV from "../icons/CV.astro";
+import ExperienceIcon from "../icons/ExperienceIcon.astro";
+import GithubIcon from "../icons/Github.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import MailIcon from "../icons/Mail.astro";
+import ProjectIcon from "../icons/ProjectIcon.astro";
+import User from "../icons/User.astro";
 ---
 
 <Layout
   title="Mardev Portfolio - WebDeveloper."
   description="Comprometido con el desarrollo de sitios web y aplicaciones web de alta calidad que satisfagan las necesidades de sus clientes. Contrata a mardev y crea tus proyectos web hoy mismo."
 >
+  <Header/>
   <main>
     <!--Home/ Section Hero -->
     <SectionContainer>
@@ -32,11 +40,11 @@ import Projects from "../components/Projects.astro";
       </h1>
 
       <h2 class="text-2xl text-white">
-        +1 years of experience. <span class="text-yellow-100/90"
+        +1 years of experience. <span class="text-yellow-200/90"
           >Computer technician, Web Developer and Systems Engineering Student.</span
         >
-        <span class="text-red-200/90">From Zulia, Venezuela.</span><span
-          class="text-sky-200/80"
+        <span class="text-sky-300/80">From Zulia, Venezuela.</span><span
+          class="text-red-300/90"
         >
           Able to make unique Apps.</span
         >
@@ -44,16 +52,20 @@ import Projects from "../components/Projects.astro";
 
       <nav class="flex gap-x-4 mt-4">
         <SocialList href="https://www.linkedin.com">
-          <LinkedInIcon class="size-6" />
+          <LinkedInIcon class="size-4" />
           LinkedIn
         </SocialList>
         <SocialList href="https://www.github.com">
-          <GithubIcon class="size-6" />
+          <GithubIcon class="size-4" />
           Github
         </SocialList>
         <SocialList href="https://www.mail.com">
-          <MailIcon class="size-6" />
-          marlonmogollon13@gmail.com
+          <MailIcon class="size-4" />
+          contactame
+        </SocialList>
+        <SocialList href="curriculum">
+          <CV class="size-4" />
+          Cv
         </SocialList>
       </nav>
     </SectionContainer>
@@ -74,7 +86,17 @@ import Projects from "../components/Projects.astro";
 
       <Projects />
     </SectionContainer>
+
+    <!--Section to About me-->
+    <SectionContainer id="about">
+      <h2 class="text-3xl font-semibold mb-4 flex items-center gap-x-3">
+        <User class="size-7" />About me
+      </h2>
+
+      <Aboutme />
+    </SectionContainer>
   </main>
+  <Footer />
 </Layout>
 
 <style></style>

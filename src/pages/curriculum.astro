@@ -1,0 +1,63 @@
+---
+import "@fontsource-variable/onest";
+import Layout from "../layouts/Layout.astro";
+import KeyboardManager from "../components/KeyboardManager.astro";
+
+import HeroCV from "../components/HeroCV.astro";
+---
+
+<Layout
+  title="Mardev Curriculum."
+  description="Aqui podras encontrar mi CV, con toda la informacion mas relevante sobre mi, desde mis estudios y experiencia laboral, hasta mis habilidades fuera del mundo del desarrollo"
+>
+  <main>
+    <HeroCV/>
+  </main>
+  <KeyboardManager/>
+</Layout>
+
+<style>
+  html {
+    font-family:
+      Menlo,
+      Monaco,
+      Luciada Console,
+      "Courier New",
+      Courier,
+      monospace;
+    letter-spacing: -0.02rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+  }
+  p {
+    color: #888;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    background: rgb(250, 250, 250);
+    color: rgb(10, 10, 10);
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+  }
+</style>

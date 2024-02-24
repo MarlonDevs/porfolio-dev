@@ -1,7 +1,6 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import '@fontsource-variable/onest';
+import "@fontsource-variable/onest";
+import KonamiCode from "../components/KonamiCode.astro";
 
 interface Props {
   title: string;
@@ -22,25 +21,39 @@ const { description, title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-	  <div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-    <Header/>
+    <div
+      class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+    >
+    </div>
     <slot />
-    <Footer/>
+    <KonamiCode />
   </body>
 </html>
 <style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   :root {
-	  color-scheme: light dark;
+    color-scheme: light dark;
   }
   html {
-    font-family: "Onest Variable" system-ui, sans-serif; 
+    font-family:
+      "Onest Variable" system-ui,
+      sans-serif;
     scroll-behavior: smooth;
   }
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     display: none;
   }
-  body{
-    display: flex; 
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    display: flex;
     flex-direction: column;
     background: rgb(10, 10, 10);
     justify-content: center;
@@ -48,8 +61,8 @@ const { description, title } = Astro.props;
     min-height: 100vh;
     width: 100vw;
   }
-  @media (prefers-reduced-motion: reduce){
-    html{
+  @media (prefers-reduced-motion: reduce) {
+    html {
       scroll-behavior: auto;
     }
   }
